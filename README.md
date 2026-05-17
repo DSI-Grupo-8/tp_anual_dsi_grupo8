@@ -13,7 +13,26 @@
 
 ## Tree
 <!-- TREE_START -->
+```text
+.
+├── README.md
+├── assets_md
+│   └── Diagrama_de_Despliegue_Inicial.png
+├── pom.xml
+├── servicio-auth
+│   └── pom.xml
+├── servicio-donaciones
+│   └── pom.xml
+├── servicio-incentivos
+│   └── pom.xml
+├── servicio-logistica
+│   └── pom.xml
+├── servicio-notificaciones
+│   └── pom.xml
+└── tree.txt
 
+7 directories, 9 files
+```
 <!-- TREE_END -->
 
 
