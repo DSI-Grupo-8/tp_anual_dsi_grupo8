@@ -1,0 +1,69 @@
+name: Update README Tree
+
+on:
+  push:
+    branches:
+      - '**'
+
+permissions:
+  contents: write
+
+jobs:
+  update-tree:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0          # necesario para poder hacer push sin conflictos
+
+      - name: Install tree
+        run: sudo apt-get update && sudo apt-get install -y tree
+
+      - name: Generate project tree
+        run: |
+          tree \
+            -I 'node_modules|.git|target|.idea|.vscode' \
+            -L 3 \
+            > tree.txt
+
+      - name: Update README.md
+        run: |
+          python3 - <<'PYEOF'
+          from pathlib import Path
+
+          readme_path = Path("README.md")
+          tree_path   = Path("tree.txt")
+
+          readme = readme_path.read_text(encoding="utf-8")
+          tree   = tree_path.read_text(encoding="utf-8").strip()
+
+          START = "<!-- TREE_START -->"
+          END   = "<!-- TREE_END -->"
+
+          if START not in readme or END not in readme:
+              raise SystemExit(
+                  f"ERROR: markers {START!r} / {END!r} not found in README.md"
+              )
+
+          before = readme.split(START)[0]
+          after  = readme.split(END)[1]
+
+          # Sin indentación extra — el heredoc no agrega espacios
+          new_section = f"{START}\n```text\n{tree}\n```\n{END}"
+
+          readme_path.write_text(before + new_section + after, encoding="utf-8")
+          print("README.md updated successfully.")
+          PYEOF
+
+      - name: Commit changes
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git diff --cached --quiet || git commit -m "docs: update project tree"
+
+      - name: Push changes
+        run: git push
