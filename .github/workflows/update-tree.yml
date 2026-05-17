@@ -25,7 +25,7 @@ jobs:
       - name: Generate project tree
         run: |
           tree \
-            -I 'node_modules|.git|target|.idea|.vscode' \
+            -I 'node_modules|.git|target|.idea|.vscode|tree.txt' \
             -L 3 \
             > tree.txt
 
