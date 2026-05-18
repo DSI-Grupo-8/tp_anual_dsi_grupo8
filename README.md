@@ -38,6 +38,10 @@
 │   │   ├── donaciones-asignadas-beneficiaria.png
 │   │   ├── necesidades-beneficiaria.png
 │   │   └── seguimiento-beneficiaria.png
+│   ├── login
+│   │   ├── crear-cuenta-beneficiario.png
+│   │   ├── crear-cuenta-donante.png
+│   │   └── iniciar-sesion.png
 │   └── principal.png
 ├── pom.xml
 ├── servicio-donaciones
@@ -49,7 +53,7 @@
 └── servicio-notificaciones
     └── pom.xml
 
-10 directories, 24 files
+11 directories, 27 files
 ```
 <!-- TREE_END -->
 
