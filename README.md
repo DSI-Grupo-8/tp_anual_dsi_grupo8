@@ -45,7 +45,9 @@
 │   └── principal.png
 ├── pom.xml
 ├── servicio-donaciones
-│   └── pom.xml
+│   ├── pom.xml
+│   └── src
+│       └── main
 ├── servicio-incentivos
 │   └── pom.xml
 ├── servicio-logistica
@@ -53,7 +55,7 @@
 └── servicio-notificaciones
     └── pom.xml
 
-11 directories, 27 files
+13 directories, 27 files
 ```
 <!-- TREE_END -->
 
