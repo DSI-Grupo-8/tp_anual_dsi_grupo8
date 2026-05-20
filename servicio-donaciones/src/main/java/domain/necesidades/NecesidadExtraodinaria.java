@@ -1,5 +1,5 @@
 package domain.necesidades;
 
-public class NecesidadExtraodinaria {
+public class NecesidadExtraodinaria extends Necesidad {
 
 }
