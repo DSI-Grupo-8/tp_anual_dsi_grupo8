@@ -9,4 +9,17 @@ public class ItemDonado{
     private UnidadMedida unidadMedida;
     private String foto;
 
+    public ItemDonado(
+            String descripcion,
+            Categoria categoria,
+            Integer cantidad,
+            UnidadMedida unidadMedida,
+            String foto) {
+
+        this.descripcion = descripcion;
+        this.subcategoria = subcategoria;
+        this.cantidad = cantidad;
+        this.unidadMedida = unidadMedida;
+        this.foto = foto;
+    }
 }

@@ -9,6 +9,10 @@ public abstract class Necesidad {
     private Integer cantidadRecibida;
 
     public boolean satisfecha() {
-    return false;
-}
+        return cantidadRecibida >= cantidadRequerida;
+    }
+
+    public void recibir(Integer cantidad) {
+        cantidadRecibida += cantidad;
+    }
 }

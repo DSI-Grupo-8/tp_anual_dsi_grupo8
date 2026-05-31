@@ -8,6 +8,18 @@ public class SolicitudDonacion {
     private LocalDateTime fechaRegistro;
     private List<ItemDonado> items;
 
+    public SolicitudDonacion(String descripcionGeneral) {
+
+        this.descripcionGeneral = descripcionGeneral;
+        this.fechaRegistro = LocalDateTime.now();
+
+        this.items = new ArrayList<>();
+    }
+
+    public void agregarItem(ItemDonado item) {
+        items.add(item);
+    }
+
     public List<Donacion> segmentar(){
         List<Donacion> Donacion;
         return Donacion;
